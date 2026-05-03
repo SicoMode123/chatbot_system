@@ -1,0 +1,203 @@
+version: "3.1"
+
+intents:
+  # --- BASICS ---
+  - greet
+  - goodbye
+  - ask_how_are_you       
+  - bot_challenge
+  - inform
+  - thank_you
+  - clear_memory
+  - out_of_scope  
+  
+  # --- BOT PERSONALITY CHIT-CHAT ---
+  - ask_bot_creator
+  - ask_bot_age
+  - compliment_bot
+
+  # --- v2 core faculty info ---
+
+  - ask_about_faculty
+  - ask_about_dean
+  - ask_about_faculty_contact
+
+  # --- V1 CORE DEPARTMENT INFO ---
+  - ask_department_info
+  - ask_hod
+  - ask_department_contact
+
+  # --- V2 NEW LEVEL & COURSE INTENTS ---
+  - ask_course_advisor
+  - ask_course_rep
+  - ask_level_courses
+  - ask_specific_course
+  - ask_semester_courses
+
+  # --- V2 MASTER ADMISSION INTENTS ---
+  - ask_jamb_requirements
+  - ask_olevel_requirements
+  - ask_fees
+  - ask_scholarships
+  - ask_accreditation_duration
+  - ask_admission_status_deadline
+  - ask_combo_question
+  - ask_general_requirements
+  - ask_admission_requirements
+  - ask_direct_entry
+  - ask_for_transfer
+
+  # --- UNIVERSAL FAQ INTENTS (General) ---
+  - faq_first_choice
+  - faq_post_utme
+  - faq_general_cutoff
+  - faq_direct_entry
+  - faq_transfer
+  - faq_fees_hostel
+  - faq_scholarships
+
+# 👉 V2 NEW ENTITIES ADDED HERE
+entities:
+  - faculty_name
+  - department_name
+  - level
+  - course_code
+  - semester
+
+# 👉 V2 NEW SLOTS ADDED HERE (This is Rasa's Short-Term Memory)
+slots:
+  department_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: department_name
+  
+  faculty_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: faculty_name
+
+  level:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: level
+
+  course_code:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: course_code
+
+  semester:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: semester
+
+  # V1 Legacy Slots (Kept for compatibility)
+  last_intent:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  item_name:
+    type: any
+    mappings:
+      - type: custom
+  primary_fact:
+    type: any
+    mappings:
+      - type: custom
+  secondary_fact:
+    type: any
+    mappings:
+      - type: custom
+  description:
+    type: any
+    mappings:
+      - type: custom
+  contact:
+    type: any
+    mappings:
+      - type: custom
+
+responses:
+  # --- THE GRACEFUL BOUNCER (Fixed Out-of-Scope) ---
+  utter_default:
+    - text: "I don't quite understand you. Could you please rephrase, or try asking me about school fees, JAMB cut-off marks, or specific course information?"
+    - text: "I'm not sure what you mean by that. Could you try rephrasing? I can help with school fees, JAMB cut-offs, or any specific admission information."
+    - text: "I'm sorry I don't understand you! My brain is strictly wired to answer questions about BIU. Ask me something about your course, levels, or admission requirements!"
+    
+  utter_iamabot:
+    - text: "I am the BIU Virtual Assistant, an AI built to help you navigate school information! 🤖"
+
+  # --- UNIVERSAL CONVERSATIONAL CHIT-CHAT ---
+  utter_greet:
+    - text: "Hello! I am the BIU AI Assistant. What can I help you find today? 😊"
+    - text: "Hey there! I'm your BIU virtual guide. What information do you need?"
+    - text: "Hi! I've got the BIU database ready. What are we looking up?"
+    - text: "Yo! BIU Assistant here. Ready to help you navigate the school. What's on your mind?"
+
+  utter_how_are_you:
+    - text: "I'm doing great, just sitting here in the BIU servers! 🤖 How can I help you today?"
+    - text: "Everything is running smoothly on my end! What school information are you looking for?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day on campus!"
+    - text: "Catch you later! Let me know if you need anything else."
+    - text: "Bye! Stay sharp!"
+    - text: "Peace out! ✌️"
+
+  utter_ask_item_name:
+    - text: "Which specific department or course are you asking about?"
+    - text: "Could you give me the exact name of the department or course?"
+  
+  utter_welcome:
+    - text: "You're very welcome! Let me know if you need anything else. 😊"
+    - text: "No problem at all! I'm here to help."
+    - text: "Glad I could help! 🙌"
+
+  # --- THE NEW BOT PERSONALITY CHIT-CHAT ---
+  utter_bot_creator:
+    - text: "I was developed by a Computer Science Student called Okereke-Ike Clinton Chukwuebuka"
+  
+  utter_bot_age:
+    - text: "I live in the cloud, so age is just a number! But I was recently updated with the latest 2026 admission data. ☁️"
+
+  utter_compliment:
+    - text: "Thank you! I'm just doing my best to make your university journey easier. 🚀 What else can I help you find?"
+
+  # --- THE UNIVERSAL FAQ RESPONSES (Bypasses Python) ---
+  utter_faq_first_choice:
+    - text: "Yes! Generally, you MUST make BIU your first choice on the JAMB portal to secure admission here. 🏫"
+
+  utter_faq_post_utme:
+    - text: "BIU generally does NOT conduct a written Post-UTME exam. We mostly do physical document screening! However, check specific competitive courses just to be sure. 📝"
+
+  utter_faq_general_cutoff:
+    - text: "The general minimum JAMB cut-off mark for BIU is usually around 140-150, but highly competitive courses (like Nursing, Law, or Computer Science) require much higher scores. 📈"
+
+  utter_faq_direct_entry:
+    - text: "Yes, BIU accepts Direct Entry (JUPEB, IJMB, OND) and university transfer students! However, minimum CGPA requirements vary heavily depending on the specific department. 🎓"
+
+  utter_faq_transfer:
+    - text: "Yes, BIU accepts Transfers students! However, minimum CGPA requirements vary heavily depending on the specific department. 🎓"
+
+
+  utter_faq_fees_hostel:
+    - text: "Parents and sponsors are allowed to pay tuition fees in installments per semester! Also, hostel accommodation is usually included in the total fees, but it's best to verify for your specific course. 💳"
+
+  utter_faq_scholarships:
+    - text: "Yes! BIU offers several scholarship opportunities, including the Bishopric Scholarship and sibling discounts. Please contact the admin for application details. 🎁"
+
+# 👉 V2 THE NEW SMART ROUTER
+actions:
+  - action_fetch_department_info
+  - action_fetch_faculty_info

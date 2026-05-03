@@ -1,0 +1,230 @@
+version: "3.1"
+
+rules:
+  # ==========================================
+  # 1. CONVERSATIONAL CHIT-CHAT
+  # ==========================================
+  - rule: Say hello anytime the user greets
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Respond to 'how are you'
+    steps:
+      - intent: ask_how_are_you
+      - action: utter_how_are_you
+
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Respond to bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+  
+  - rule: Respond to thank you
+    steps:
+      - intent: thank_you
+      - action: utter_welcome
+
+  - rule: Respond to Creator Question
+    steps:
+      - intent: ask_bot_creator
+      - action: utter_bot_creator
+
+  - rule: Respond to Age Question
+    steps:
+      - intent: ask_bot_age
+      - action: utter_bot_age
+
+  - rule: Respond to Compliment
+    steps:
+      - intent: compliment_bot
+      - action: utter_compliment
+    
+  - rule: Handle out of scope and gibberish gracefully
+    steps:
+      - intent: out_of_scope
+      - action: utter_default
+  
+  - rule: Wipe memory slots when user asks to start over
+    steps:
+      - intent: clear_memory
+      - action: action_restart
+      - action: utter_greet
+  
+  - rule: Route fallback to Python Scanner
+    steps:
+      - intent: nlu_fallback
+      - action: action_fetch_department_info
+
+  # ==========================================
+  # 2. V2 SMART ROUTER RULES (Levels, Courses & Admissions)
+  # ==========================================
+  - rule: Trigger DB when student gives department name (inform)
+    steps:
+      - intent: inform
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for HOD
+    steps:
+      - intent: ask_hod
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Contact Info
+    steps:
+      - intent: ask_department_contact
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for General Info
+    steps:
+      - intent: ask_department_info
+      - action: action_fetch_department_info
+
+  # 👉 THE 3 NEW FACULTY RULES
+  - rule: Trigger DB for Faculty Search (General)
+    steps:
+      - intent: ask_about_faculty
+      - action: action_fetch_faculty_info
+
+  - rule: Trigger DB for Faculty Dean
+    steps:
+      - intent: ask_about_dean
+      - action: action_fetch_faculty_info
+
+  - rule: Trigger DB for Faculty Contact
+    steps:
+      - intent: ask_about_faculty_contact
+      - action: action_fetch_faculty_info
+
+  # 👉 V2: NEW LEVEL & COURSE RULES
+  - rule: Trigger DB for Course Advisor
+    steps:
+      - intent: ask_course_advisor
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Class Rep
+    steps:
+      - intent: ask_class_rep
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Level Courses
+    steps:
+      - intent: ask_level_courses
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Specific Course
+    steps:
+      - intent: ask_specific_course
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Semester Courses
+    steps:
+      - intent: ask_semester_courses
+      - action: action_fetch_department_info
+
+  # 👉 V2: MASTER ADMISSION RULES
+  - rule: Trigger DB for JAMB Requirements
+    steps:
+      - intent: ask_jamb_requirements
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for O-Level Requirements
+    steps:
+      - intent: ask_olevel_requirements
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Direct Entry 
+    steps:
+      - intent: ask_direct_entry
+      - action: action_fetch_department_info
+  
+  - rule: Trigger DB for Transfers
+    steps:
+      - intent: ask_for_transfer
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Fees
+    steps:
+      - intent: ask_fees
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Scholarships
+    steps:
+      - intent: ask_scholarships
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Accreditation and Duration
+    steps:
+      - intent: ask_accreditation_duration
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Admission Status and Deadlines
+    steps:
+      - intent: ask_admission_status_deadline
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Combo Questions
+    steps:
+      - intent: ask_combo_question
+      - action: action_fetch_department_info
+  
+  - rule: Trigger DB for General Admission Requirements
+    steps:
+      - intent: ask_general_requirements
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for General Admission Requirements
+    steps:
+      - intent: ask_admission_requirements
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Direct Entry
+    steps:
+      - intent: ask_direct_entry
+      - action: action_fetch_department_info
+
+  - rule: Trigger DB for Transfer
+    steps:
+      - intent: ask_for_transfer
+      - action: action_fetch_department_info
+
+  # ==========================================
+  # 3. UNIVERSAL FAQ RULES (Bypasses Python)
+  # ==========================================
+  - rule: Answer First Choice FAQ
+    steps:
+      - intent: faq_first_choice
+      - action: utter_faq_first_choice
+
+  - rule: Answer Post UTME FAQ
+    steps:
+      - intent: faq_post_utme
+      - action: utter_faq_post_utme
+
+  - rule: Answer General Cutoff FAQ
+    steps:
+      - intent: faq_general_cutoff
+      - action: utter_faq_general_cutoff
+
+  - rule: Answer Direct entry FAQ
+    steps:
+      - intent: faq_direct_entry
+      - action: utter_faq_direct_entry
+
+  - rule: Answer Transfer FAQ
+    steps:
+      - intent: faq_transfer
+      - action: utter_faq_transfer
+
+  - rule: Answer Fees and Hostel FAQ
+    steps:
+      - intent: faq_fees_hostel
+      - action: utter_faq_fees_hostel
+
+  - rule: Answer Scholarships FAQ
+    steps:
+      - intent: faq_scholarships
+      - action: utter_faq_scholarships

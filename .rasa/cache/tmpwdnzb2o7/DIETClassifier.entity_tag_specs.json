@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-course_code",
+      "2": "I-course_code",
+      "3": "L-course_code",
+      "4": "U-course_code",
+      "5": "B-department_name",
+      "6": "I-department_name",
+      "7": "L-department_name",
+      "8": "U-department_name",
+      "9": "B-faculty_name",
+      "10": "I-faculty_name",
+      "11": "L-faculty_name",
+      "12": "U-faculty_name",
+      "13": "B-level",
+      "14": "I-level",
+      "15": "L-level",
+      "16": "U-level",
+      "17": "B-semester",
+      "18": "I-semester",
+      "19": "L-semester",
+      "20": "U-semester",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-course_code": 1,
+      "I-course_code": 2,
+      "L-course_code": 3,
+      "U-course_code": 4,
+      "B-department_name": 5,
+      "I-department_name": 6,
+      "L-department_name": 7,
+      "U-department_name": 8,
+      "B-faculty_name": 9,
+      "I-faculty_name": 10,
+      "L-faculty_name": 11,
+      "U-faculty_name": 12,
+      "B-level": 13,
+      "I-level": 14,
+      "L-level": 15,
+      "U-level": 16,
+      "B-semester": 17,
+      "I-semester": 18,
+      "L-semester": 19,
+      "U-semester": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

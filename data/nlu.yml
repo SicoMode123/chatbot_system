@@ -1,0 +1,443 @@
+version: "3.1"
+
+nlu:
+  # ==========================================
+  # 0. GREETINGS, BASICS & CHIT-CHAT
+  # ==========================================
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+
+  - intent: ask_how_are_you
+    examples: |
+      - how are you
+      - how are you doing
+      - what's up
+      - how are you doing today
+  
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+      - who are you?
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+
+  - intent: thank_you
+    examples: |
+      - thank you
+      - thanks
+      - thanks a lot
+
+  - intent: ask_bot_creator
+    examples: |
+      - who made you?
+      - who programmed you?
+      - are you built by a student?
+
+  - intent: ask_bot_age
+    examples: |
+      - how old are you?
+      - when were you born?
+
+  - intent: compliment_bot
+    examples: |
+      - you are smart
+      - good bot
+      - you are doing a great job
+  
+  - intent: clear_memory
+    examples: |
+      - clear memory
+      - start over
+      - forget what I said
+      - reset
+      - clear my data
+      - let's start again
+      - restart
+
+  - intent: out_of_scope
+    examples: |
+      - asdfghjkl
+      - jhejgfejfjefe
+      - blah blah blah
+      - what is the weather like?
+      - sing me a song
+      - are there agberos in biu?
+      - admission specifications
+      - what is your favorite color?
+      - who is the president of nigeria?
+
+ # 1. core Faculty info 
+
+  - intent: ask_about_faculty
+    examples: |
+      - tell me about the faculty of [Computing](faculty_name)
+      - what is the [Arts](faculty_name) faculty about?
+      - give me general info on the [Law](faculty_name) faculty
+      - what departments are under [Basic Medical Sciences](faculty_name)?
+      - list the departments in the faculty of [Engineering](faculty_name)
+      - faculty of [science](faculty_name) overview
+      - i need information on the [Agriculture](faculty_name) faculty
+      - show me the [Social Sciences](faculty_name) faculty details
+      - breakdown of the [Business](faculty_name) faculty
+
+  - intent: ask_about_dean
+    examples: |
+      - who is the dean of the [Computing](faculty_name) faculty?
+      - dean of [Engineering](faculty_name)
+      - who heads the faculty of [Science](faculty_name)?
+      - current dean for the [Law](faculty_name) faculty
+      - who is in charge of [Arts](faculty_name)?
+      - name of the dean of [Basic Medical Sciences](faculty_name)
+      - [Agriculture](faculty_name) faculty dean
+      - who is the head of the [Social Sciences](faculty_name) faculty?
+      - tell me the dean of [Business](faculty_name)
+
+  - intent: ask_about_faculty_contact
+    examples: |
+      - how do I contact the [Computing](faculty_name) faculty?
+      - email address for the faculty of [Arts](faculty_name)
+      - what is the [Law](faculty_name) faculty phone number?
+      - contact details for [Engineering](faculty_name)
+      - how can i reach the [Science](faculty_name) faculty?
+      - [Basic Medical Sciences](faculty_name) contact info
+      - faculty of [Agriculture](faculty_name) email
+      - where is the [Social Sciences](faculty_name) faculty office?
+      - support email for the [Business](faculty_name) faculty
+
+  # ==========================================
+  # 2. CORE DEPARTMENT INFO
+  # ==========================================
+  - intent: ask_department_info
+    examples: |
+      - tell me about the [computer science](department_name) department
+      - tell me about [cyber security](department_name)
+      - I want to know about [nursing](department_name)
+      - give me info on [international studies and diplomacy](department_name)
+      - can you explain what [accounting](department_name) is about?
+      - info about [law](department_name)
+
+  - intent: ask_hod
+    examples: |
+      - who is the HOD for [cyber security](department_name)?
+      - who is the HOD of [computer science](department_name)
+      - who heads the [law](department_name) department?
+      - head of department for [nursing](department_name)
+      - can you tell me the HOD for [international studies and diplomacy](department_name)?
+      - i want to know the HOD for [microbiology](department_name)
+
+  - intent: ask_department_contact
+    examples: |
+      - what is the email for [computer science](department_name)?
+      - how do I contact [nursing](department_name)?
+      - contact info for [cyber security](department_name)
+      - give me the contact for [international studies and diplomacy](department_name)
+      - i need the contact info for [law](department_name)
+
+  - intent: inform
+    examples: |
+      - [computer science](department_name)
+      - it is [nursing](department_name)
+      - I am asking about [law](department_name)
+      - [cyber security](department_name)
+      - [economics](department_name)
+
+  # ==========================================
+  # 3. V2 SPECIFIC: LEVELS, ADVISORS & COURSES
+  # ==========================================
+  - intent: ask_course_advisor
+    examples: |
+      - who is the course advisor for [100](level) lvl [computer science](department_name)?
+      - who advises [200](level) level [cyber security](department_name)?
+      - [300](level) l [law](department_name) course advisor
+      - who is in charge of [400](level) level [nursing](department_name)?
+      - tell me the course advisor for [500](level) lvl [Agric](department_name)
+
+  - intent: ask_course_rep
+    examples: |
+      - who is the course rep for [100](level) level [cyber security](department_name)?
+      - [200](level)l [computer science](department_name) course representative
+      - course rep for [300](level) lvl [accounting](department_name)
+      - tell me the course rep for [400](level)level [nursing](department_name)
+
+  - intent: ask_level_courses
+    examples: |
+      - what are the [100](level) level courses for [cyber security](department_name)?
+      - list [200](level)l courses in [computer science](department_name)
+      - show me [300](level) lvl courses for [accounting](department_name)
+      - what courses will I offer in [100](level) level [law](department_name)?
+      - what are the courses i can offer in [100](level)lvl [Nursing](department_name)
+  
+  # ==========================================
+  # SEMESTER-SPECIFIC INTENTS
+  # ==========================================
+  - intent: ask_semester_courses
+    examples: |
+      - what are the [1st](semester) semester courses for [100](level) level [cyber security](department_name)?
+      - list [2nd](semester) semester courses in [computer science](department_name)
+      - show me [1st](semester) semester [300](level) lvl courses for [accounting](department_name)
+      - what will I offer in the [second](semester) semester of [200](level) level [law](department_name)?
+      - [first](semester) semester courses for [nursing](department_name)
+
+  - intent: ask_specific_course
+    examples: |
+      - tell me about [CYB303](course_code)
+      - how many units is [CSC101](course_code)?
+      - is [MTH201](course_code) a compulsory course?
+      - info on [LAW101](course_code)
+      - how many units is [CSC 411](course_code)?
+      - tell me about [MTH 101](course_code)
+      - what is [CYB 303](course_code)?
+      - is [GST 111](course_code) compulsory?
+      - units for [PHY 202](course_code)
+      
+
+  # ==========================================
+  # 4. MASTER ADMISSION INTENTS (Specific)
+  # ==========================================
+  - intent: ask_jamb_requirements
+    examples: |
+      - what is the cut off mark for [cyber security](department_name)?
+      - jamb score for [law](department_name)
+      - what is the cutoff for [nursing](department_name)?
+      - does BIU write post utme for [computer science](department_name)?
+      - is first choice compulsory for [law](department_name)?
+
+  - intent: ask_olevel_requirements
+    examples: |
+      - what are the waec subjects for [cyber security](department_name)?
+      - olevel requirements for [law](department_name)
+      - do I need physics for [nursing](department_name)?
+      - compulsory subjects for [business administration](department_name)
+
+  - intent: ask_direct_entry
+    examples: |
+      - do they accept direct entry for [CSC](department_name)?
+      - what is the DE requirement for [computer science](department_name)?
+      - direct entry for [cyber security](department_name)
+      - DE subjects for [IT](department_name)
+  
+  - intent: ask_for_transfer
+    examples: |
+      - how can i transfer to [CSC](department_name)?
+      - do you accept transfer students in [computer science](department_name)?
+      - what is the transfer process for [cyber security](department_name)?
+      - i want to transfer from another university to [IT](department_name)
+      - can i change my course to [software engineering](department_name)?
+      - inter-university transfer requirements
+
+  - intent: ask_fees
+    examples: |
+      - how much is school fees for [CSC](department_name)?
+      - what is the acceptance fee for [law](department_name)?
+      - how much will I pay for [nursing](department_name)?
+      - total money required for [civil engineering](department_name) per session
+      - cost of [computer science](department_name)
+      - tuition for [software engineering](department_name)
+      - how much do i pay for [cyber security](department_name)
+
+  - intent: ask_scholarships
+    examples: |
+      - do you offer scholarships for [computer science](department_name)?
+      - are there discounts for siblings in [law](department_name)?
+
+  - intent: ask_accreditation_duration
+    examples: |
+      - is your [architecture](department_name) fully accredited?
+      - how many years is the [cyber security](department_name) course?
+
+  - intent: ask_admission_status_deadline
+    examples: |
+      - when is the admission deadline for [law](department_name)?
+      - are you still admitting students for [cyber security](department_name)?
+  
+
+  - intent: ask_admission_requirements
+    examples: |
+      - what are the admission requirements for [CSC](department_name)?
+      - what are the admission requirements for [Computer science](department_name)?
+      - tell me the requirements to study [computer science](department_name)
+      - what is required for [software engineering](department_name)
+      - admission criteria for [cyber security](department_name)
+      - how do i get admitted into [IT](department_name)
+      - what do i need to get admission for [computer science](department_name)?
+
+  # ==========================================
+  # 5. UNIVERSAL FAQs (General)
+  # ==========================================
+  - intent: faq_first_choice
+    examples: |
+      - do I have to make BIU my first choice?
+      - do you accept second choice candidates?
+      - is first choice compulsory for admission?
+
+  - intent: faq_post_utme
+    examples: |
+      - does BIU write post utme?
+      - is there an entrance exam or just screening?
+      - do I need to travel for a post-utme exam?
+
+  - intent: faq_general_cutoff
+    examples: |
+      - what is the general cut off mark for BIU?
+      - what is the minimum jamb score to enter the school?
+
+  - intent: faq_direct_entry
+    examples: |
+      - do you generally accept direct entry?
+      - can I enter with JUPEB or OND?
+      - how does DE work at Benson Idahosa university?
+
+  - intent: faq_transfer
+    examples: |
+      - do you accept transfer students?
+      - can i transfer from another university to BIU?
+      - do you accept university transfer students?
+      - i want to transfer from my current school
+
+  - intent: faq_fees_hostel
+    examples: |
+      - can we pay school fees in installments?
+      - is hostel accommodation included in the fees?
+
+  - intent: faq_scholarships
+    examples: |
+      - does the school offer scholarships?
+      - are there discounts for siblings?
+
+  # ==========================================
+  # 6. MULTI-GOAL ROUTING
+  # ==========================================
+# ==========================================
+  # 6. MULTI-GOAL ROUTING (Combo Questions)
+  # ==========================================
+  - intent: ask_combo_question
+    examples: |
+      - do they accept direct entry for [cyber security](department_name), and what are the waec subjects?
+      - tell me about [law](department_name), what are the waec subjects, and how much are the fees?
+      - how much is the school fees for [nursing](department_name) and what is their jamb cutoff mark?
+      - who is the HOD for [computer science](department_name) and what are the [100](level) level courses?
+      - how many years is [accounting](department_name) and how much will I pay per session?
+      - what is the waec requirement and minimum jamb score for [civil engineering](department_name)?
+      - who is the course advisor for [200](level) level [cyber security](department_name) and what are the [1st](semester) semester courses?
+      - is [medicine](department_name) fully accredited and when is the admission deadline?
+      - how much is the total fee for [mass communication](department_name) and does it include hostel accommodation?
+      - can i transfer to [business administration](department_name) and what is the minimum cgpa required?
+      - do i need to make BIU my first choice for [computer science](department_name) and do they write post utme?
+      - what are the [2nd](semester) semester courses for [300](level) level [law](department_name) and who is the class rep?
+      - does [international studies and diplomacy](department_name) offer scholarships and how much is the acceptance fee?
+      - what is the cut off mark for [nursing](department_name) and do they accept two sittings?
+
+  # ==========================================
+  # 7. V2 ENTITY LOOKUPS, SYNONYMS & REGEX
+  # ==========================================
+
+  - lookup: faculty_name
+    examples: |
+      - Computing
+      - Science
+      - Arts 
+      - Law 
+      - Engineering 
+      - Medical Sciencen
+      - Social Science 
+
+  - lookup: department_name
+    examples: |
+      - computer science
+      - cyber security
+      - law
+      - nursing
+      - accounting
+      - mass communication
+      - business administration
+      - medicine
+      - civil engineering
+      - international studies and diplomacy
+
+  - synonym: computer science
+    examples: |
+      - csc
+      - comp sci
+      - cs
+
+  - synonym: cyber security
+    examples: |
+      - cyb
+      - cybersecurity
+      - cyber
+
+  - synonym: mass communication
+    examples: |
+      - mass comm
+      - mc
+
+  - synonym: business administration
+    examples: |
+      - bus admin
+      - biz admin
+
+  - synonym: international studies and diplomacy
+    examples: |
+      - isd
+      - diplomacy
+
+  # 👉 V2 SYNONYMS FOR LEVELS (Converts "100 lvl" clean to "100" for your API)
+  - synonym: "100"
+    examples: |
+      - 100l
+      - 100L
+      - 100 lvl
+      - 100 level
+
+  - synonym: "200"
+    examples: |
+      - 200l
+      - 200L
+      - 200 lvl
+      - 200 level
+
+  - synonym: "300"
+    examples: |
+      - 300l
+      - 300L
+      - 300 lvl
+      - 300 level
+
+  - synonym: "400"
+    examples: |
+      - 400l
+      - 400L
+      - 400 lvl
+      - 400 level
+
+  - synonym: "500"
+    examples: |
+      - 500l
+      - 500L
+      - 500 lvl
+      - 500 level
+
+  # 👉 V2 REGEX FOR COURSE CODES (Automatically catches things like CYB303 or MTH 101)
+ # ==========================================
+  # REGEX PATTERNS (Bulletproof Entity Extraction)
+  # ==========================================
+  - regex: level
+    examples: |
+      - \b[1-6]00\b
+
+  - regex: course_code
+    examples: |
+      - \b[A-Za-z]{3}\s?\d{3}\b

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "course_code",
+    "pattern": "\\b[A-Za-z]{3}\\s?\\d{3}\\b"
+  },
+  {
+    "name": "level",
+    "pattern": "\\b[1-6]00\\b"
+  },
+  {
+    "name": "department_name",
+    "pattern": "(\\bcomputer\\ science\\b|\\bcyber\\ security\\b|\\blaw\\b|\\bnursing\\b|\\baccounting\\b|\\bmass\\ communication\\b|\\bbusiness\\ administration\\b|\\bmedicine\\b|\\bcivil\\ engineering\\b|\\binternational\\ studies\\ and\\ diplomacy\\b)"
+  }
+]
