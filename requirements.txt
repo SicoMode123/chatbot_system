@@ -95,7 +95,6 @@ pymongo==4.3.3
 pyparsing==3.1.4
 pyreadline3==3.5.4
 pyrsistent==0.20.0
-python==3.8.8
 python-crfsuite==0.9.11
 python-dateutil==2.8.2
 python-engineio==4.13.1
@@ -162,11 +161,3 @@ wrapt==1.14.2
 wsproto==1.2.0
 yarl==1.15.2
 zipp==3.20.2
-asgiref==3.9.1
-Django==5.2.5
-mssql-django==1.6
-pyodbc==5.2.0
-pytz==2025.2
-sqlparse==0.5.3
-tzdata==2025.2
-fuzzywuzzy
